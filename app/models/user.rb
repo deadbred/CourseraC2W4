@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
 	validates :username, presence: true
 
+	has_secure_password
+
 	def get_completed_count
 		User.find(self.id).todo_items.where(completed: true).count
 	end
